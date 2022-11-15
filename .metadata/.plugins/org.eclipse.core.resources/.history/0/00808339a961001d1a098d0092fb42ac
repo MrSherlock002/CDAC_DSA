@@ -1,0 +1,61 @@
+package com.cdac;
+
+public class BinaryTree {
+	Node root;
+	//	
+	//	public BinaryTree() {
+	//			}
+	public void BuildTree() {
+		root=new Node(10);
+		root.lchild=new Node(7);
+		root.rchild=new Node(12);
+		root.lchild.lchild=new Node(5);
+		root.lchild.rchild=new Node(6);
+		root.rchild.lchild=new Node(11);
+		root.rchild.rchild=new Node(16);
+		root.lchild.lchild.lchild=new Node(3);
+		root.lchild.lchild.rchild=new Node(4);
+	}
+	public void preorder() {
+		preorder(root);
+	}
+	public void preorder(Node currentRoot) {
+		if(currentRoot!=null) {
+			System.out.print(currentRoot.data+",  ");
+			preorder(currentRoot.lchild);
+			preorder(currentRoot.rchild);
+		}
+	}
+	public void inorder() {
+		inorder(root);
+	}
+	private void inorder(Node currentRoot) {
+		if(currentRoot!=null) {
+			inorder(currentRoot.lchild);
+			System.out.print(currentRoot.data+",  ");
+			inorder(currentRoot.rchild);
+		}
+	}
+	public void postorder() {
+		postorder(root);
+	}
+	private void postorder(Node currentRoot) {
+		if(currentRoot!=null) {
+			postorder(currentRoot.lchild);
+			postorder(currentRoot.rchild);
+			System.out.print(currentRoot.data+",  ");
+		}
+	}
+	public Node Insert(Node currentRoot, int element) {
+		if(currentRoot==null) {
+			return new Node(element);
+		}
+		if(element<currentRoot.data) {
+			Insert(currentRoot.lchild, element);
+		}
+		Insert(currentRoot.rchild, element);
+		
+		return currentRoot;
+		
+	}
+}

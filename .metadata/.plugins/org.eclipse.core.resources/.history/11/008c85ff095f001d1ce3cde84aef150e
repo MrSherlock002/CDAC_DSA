@@ -1,0 +1,28 @@
+package com.acts;
+
+import com.acts.BinaryTree.Node;
+
+public class BinaryTreeTester {
+public static void main(String[] args) {
+	BinaryTree tObj = new BinaryTree();
+	tObj.insertInTree(tObj.root, 5); 
+	tObj.insertInTree(tObj.root, 8); 
+	tObj.insertInTree(tObj.root, 6); 
+	tObj.insertInTree(tObj.root, 7); 
+	tObj.insertInTree(tObj.root, 9); 
+	tObj.insertInTree(tObj.root, 44); 
+	tObj.insertInTree(tObj.root, 69); 
+//	tObj.insertInTree(tObj.root, 15); 
+	tObj.insertInTree(tObj.root, 45); 
+	tObj.insertInTree(tObj.root, 15); 
+	tObj.insertInTree(tObj.root, 52); 
+	tObj.insertInTree(tObj.root, 51); 
+	
+	System.out.println("\nInorder Traversal : ");
+	tObj.inOrder(tObj.root);
+	System.out.println("\npreorder Traversal : ");
+	tObj.preOrder(tObj.root);
+	System.out.println("\npostorder Traversal : ");
+	tObj.postOrder(tObj.root);
+}
+}

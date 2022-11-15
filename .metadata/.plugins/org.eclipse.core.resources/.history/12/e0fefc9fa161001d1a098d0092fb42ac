@@ -1,0 +1,36 @@
+package com.cdac;
+
+public class BinaryTree {
+	private Node root;
+	public BinaryTree() {
+		root=null;
+	}
+	public void BuildTree() {
+		root=new Node(10);
+		root.lchild=new Node(7);
+		root.rchild=new Node(12);
+		root.lchild.lchild=new Node(5);
+		root.lchild.rchild=new Node(6);
+		root.rchild.lchild=new Node(11);
+		root.rchild.rchild=new Node(16);
+		root.lchild.lchild.lchild=new Node(3);
+		root.lchild.lchild.rchild=new Node(4);
+	}
+	public void preorder(Node currentRoot) {
+		if(currentRoot==null) {
+			return;
+		}
+		System.out.println(currentRoot.data+",  ");
+		preorder(currentRoot.lchild);
+		preorder(currentRoot.rchild);
+	}
+	public void inorder(Node currentRoot) {
+		if(currentRoot==null) {
+			return;
+		}
+		inorder(currentRoot.lchild);
+		System.out.println(currentRoot.data+",  ");
+		inorder(currentRoot.rchild);
+	}
+	
+}

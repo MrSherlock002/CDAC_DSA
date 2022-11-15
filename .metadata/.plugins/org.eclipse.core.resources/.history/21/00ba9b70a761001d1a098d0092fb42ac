@@ -1,0 +1,19 @@
+package com.cdac;
+
+public class BinaryTreeTester {
+
+	public static void main(String[] args) {
+		BinaryTree bst=new BinaryTree();
+		bst.BuildTree();
+		System.out.println("\nThe preorder output result");
+		bst.preorder();
+		System.out.println("\nThe inorder output result");
+		bst.inorder();
+		System.out.println("\nThe postorder output result");
+		bst.postorder();
+		
+		System.out.println("\nThe total node of the binary search tree");
+		System.out.println(bst.count(););
+	}
+
+}

@@ -1,0 +1,120 @@
+package com.acts;
+
+public class BST {
+	Node root;
+	static class Node{
+		int data;
+		Node lchild;
+		Node rchild;
+
+		Node(int element){
+			this.data = element;
+			lchild = null;
+			rchild = null;
+		}
+		
+		public static boolean isLeaf() {
+		 return left == null ? right == null : false;
+		}
+	}
+	public BST() {
+		root = null;
+	}
+	
+	public Node getRoot() {
+		return root;
+	}
+
+	void insertInTree(Node ptr, int data) {
+		if(ptr==null) {
+			ptr = new Node(data);
+			this.root = ptr;
+		}
+		else {
+			if(ptr.data>data && ptr.lchild!=null) {
+				insertInTree(ptr.lchild, data);
+			}
+			else if(ptr.data>data) {
+				ptr.lchild = new Node(data);
+			}
+			else if(ptr.data<data && ptr.rchild!=null) {
+				insertInTree(ptr.rchild, data);
+			}
+			else {
+				ptr.rchild = new Node(data);
+			}
+		}
+//		if(this.root==null) {
+//			this.root= new Node(data);
+//			return root;
+//		}
+//		else if(data<root.data && root.lchild!=null) {
+//			this.root.lchild = insertInTree(root.lchild,data);
+//		}
+//		else if(data<root.data) {
+//			this.root.lchild = new Node(data);
+//		}
+//		else if(data>root.data && root.rchild!=null) {
+//			this.root.rchild = insertInTree(root.rchild, data);
+//		}
+//		else if(data>root.data) {
+//			this.root.rchild = new Node(data);
+//		}
+//		return root; 
+	}
+
+	public void preOrder(Node root) {
+		if(root==null) {
+			return;
+		}
+		//Step 1 : Process the root node.
+		System.out.print(" "+root.data);
+
+		//Step 2 : Process the root's left side.
+		if(root.lchild!=null) {
+			preOrder(root.lchild);
+		}
+
+		//Step 3 : Process the root's right side.
+		if(root.rchild!=null) {
+			preOrder(root.rchild);
+		}
+	}
+
+
+	public void inOrder(Node root) {
+		if(root==null) {
+			return;
+		}
+		//Step 1 : Process the root's left side.
+		if(root.lchild!=null) {
+			inOrder(root.lchild);
+		}
+		
+		//Step 2 : Process the root node.
+		System.out.print(" "+root.data);
+
+		//Step 3 : Process the root's right side.
+		if(root.rchild!=null) {
+			inOrder(root.rchild);
+		}
+	}
+	
+	public void postOrder(Node root) {
+		if(root==null) {
+			return;
+		}
+		//Step 1 : Process the root's left side.
+		if(root.lchild!=null) {
+			postOrder(root.lchild);
+		}
+
+		//Step 2 : Process the root's right side.
+		if(root.rchild!=null) {
+			postOrder(root.rchild);
+		}
+
+		//Step 3 : Process the root node.
+		System.out.print(" "+root.data);
+	}
+}
